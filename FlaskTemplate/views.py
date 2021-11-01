@@ -45,6 +45,6 @@ def about():
         'about.html',
         title='About',
         year = datetime.now().year,
-        message = 'Your application description page.'      
-        message2 = str(retrieved_secret.value) 
+        message = 'Your application description page.',
+        message2 = retrieved_secret.value 
     )
