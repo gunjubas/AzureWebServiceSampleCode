@@ -38,7 +38,7 @@ def about():
         title='About',
         year=datetime.now().year,
         message='Your application description page.'
-        keyVaultName = os.environ["KEY_VAULT_NAME"]
+        keyVaultName = os.environ["ConnectionString"]
         KVUri = f"https://{keyVaultName}.vault.azure.net"
 
         credential = DefaultAzureCredential()
