@@ -33,18 +33,18 @@ def contact():
 @app.route('/about')
 def about():
     """Renders the about page."""
+    keyVaultName = os.environ['ConnectionString']
+    KVUri = f'https://{keyVaultName}.vault.azure.net'
+
+    credential = DefaultAzureCredential()
+    client = SecretClient(vault_url=KVUri, credential=credential)
+
+    secretName = 'maksym-ganistrat-1'
+    retrieved_secret = client.get_secret(secretName)
     return render_template(
         'about.html',
         title='About',
         year = datetime.now().year,
-        message = 'Your application description page.'
-        keyVaultName = os.environ["ConnectionString"]
-        KVUri = f"https://{keyVaultName}.vault.azure.net"
-
-        credential = DefaultAzureCredential()
-        client = SecretClient(vault_url=KVUri, credential=credential)
-
-        secretName = 'maksym-ganistrat-1'
-        retrieved_secret = client.get_secret(secretName)
+        message = 'Your application description page.'      
         message2 = str(retrieved_secret.value) 
     )
