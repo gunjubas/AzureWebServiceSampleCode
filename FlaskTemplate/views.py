@@ -1,10 +1,14 @@
 """
 Routes and views for the flask application.
 """
+import os
+from azure.keyvault.secrets import SecretClient
+from azure.identity import DefaultAzureCredential
 
 from datetime import datetime
 from flask import render_template
 from FlaskTemplate import app
+
 
 @app.route('/')
 @app.route('/home')
@@ -34,4 +38,13 @@ def about():
         title='About',
         year=datetime.now().year,
         message='Your application description page.'
+        keyVaultName = os.environ["KEY_VAULT_NAME"]
+        KVUri = f"https://{keyVaultName}.vault.azure.net"
+
+        credential = DefaultAzureCredential()
+        client = SecretClient(vault_url=KVUri, credential=credential)
+
+        secretName = 'maksym-ganistrat-1'
+        retrieved_secret = client.get_secret(secretName)
+        message2= retrieved_secret.value   
     )
