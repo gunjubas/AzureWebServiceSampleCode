@@ -36,8 +36,8 @@ def about():
     return render_template(
         'about.html',
         title='About',
-        year=datetime.now().year,
-        message='Your application description page.'
+        year = datetime.now().year,
+        message = 'Your application description page.'
         keyVaultName = os.environ["ConnectionString"]
         KVUri = f"https://{keyVaultName}.vault.azure.net"
 
@@ -46,5 +46,5 @@ def about():
 
         secretName = 'maksym-ganistrat-1'
         retrieved_secret = client.get_secret(secretName)
-        message2= retrieved_secret.value   
+        message2 = str(retrieved_secret.value) 
     )
