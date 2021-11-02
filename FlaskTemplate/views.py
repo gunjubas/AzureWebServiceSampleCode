@@ -45,7 +45,7 @@ def about():
         'about.html',
         title='About',
         year = datetime.now().year,
-        message = 'Test message'
+        message = 'Test message',
         # message = str(retrieved_secret.value),
         message2 = os.environ['ConnectionString']
     )
