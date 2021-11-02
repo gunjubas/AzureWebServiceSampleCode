@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'cloudx-webapp-1'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3B1B994225B84F9F8996400C33B291FA }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6772B7BE3FFC4495B850DD5572730B17 }}
