@@ -48,4 +48,5 @@ def about():
         message = 'Test message',
         # message = str(retrieved_secret.value),
         message2 = os.environ['ConnectionString']
+        message3 = f'This page running on {os.environ['WEBSITE_SITE_NAME']} instance'
     )
