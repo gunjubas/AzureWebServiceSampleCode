@@ -2,7 +2,7 @@
 Routes and views for the flask application.
 """
 import os
-# import pyodbc
+import pyodbc
 from datetime import datetime
 from flask import render_template
 from FlaskTemplate import app
@@ -31,17 +31,17 @@ def contact():
 @app.route('/about')
 def about():
     """Renders the about page."""
-    # sqlResponse = []
-    # with pyodbc.connect(os.environ['ConnectionString']) as conn:
-    #     with conn.cursor() as cursor:
-    #         cursor.execute("SELECT TOP (10) [Title], [FirstName], [MiddleName], [LastName], [CompanyName], [Phone], [ModifiedDate] FROM [SalesLT].[Customer]")
-    #         row = cursor.fetchone()
-    #         while row:
-    #             sqlResponse.append('<tr>')
-    #             for i in row:
-    #                 sqlResponse.append(f'<td>{i}</td>')
-    #             row = cursor.fetchone()
-    #             sqlResponse.append('</tr>')
+    sqlResponse = []
+    with pyodbc.connect(os.environ['ConnectionString']) as conn:
+        with conn.cursor() as cursor:
+            cursor.execute("SELECT TOP (10) [Title], [FirstName], [MiddleName], [LastName], [CompanyName], [Phone], [ModifiedDate] FROM [SalesLT].[Customer]")
+            row = cursor.fetchone()
+            while row:
+                sqlResponse.append('<tr>')
+                for i in row:
+                    sqlResponse.append(f'<td>{i}</td>')
+                row = cursor.fetchone()
+                sqlResponse.append('</tr>')
 
     return render_template(
         'about.html',
@@ -49,7 +49,7 @@ def about():
         year = datetime.now().year,
         message = 'Test message',
         # message = str(retrieved_secret.value),
-        # message2 = str(sqlResponse[0:]),
-        message2 = '123',
+        message2 = str(sqlResponse[0:]),
+        # message2 = '123',
         message3 = os.environ['WEBSITE_SITE_NAME']
     )
