@@ -1,7 +1,7 @@
 """
 Routes and views for the flask application.
 """
-# import os
+import os
 # import pyodbc
 from datetime import datetime
 from flask import render_template
