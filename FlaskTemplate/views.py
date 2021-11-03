@@ -2,7 +2,7 @@
 Routes and views for the flask application.
 """
 import os
-import pyodbc
+
 from datetime import datetime
 from flask import render_template
 from FlaskTemplate import app
@@ -30,6 +30,7 @@ def contact():
 
 @app.route('/about')
 def about():
+    import pyodbc
     """Renders the about page."""
     sqlResponse = []
     with pyodbc.connect(os.environ['ConnectionString']) as conn:
