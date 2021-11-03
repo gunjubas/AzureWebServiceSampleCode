@@ -1,4 +1,2 @@
 import os
-
-preInit = 'bash ./preinit.sh'
-os.system(preInit)
+os.system('bash ./preinit.sh')
