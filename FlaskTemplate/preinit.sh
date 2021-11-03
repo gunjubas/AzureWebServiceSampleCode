@@ -1,6 +1,6 @@
 #!/bin/bash
 apt-get update
-apt-get install -y install build-essential
+apt-get install -y build-essential
 curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
 curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > /etc/apt/sources.list.d/mssql-release.list
 apt-get update
