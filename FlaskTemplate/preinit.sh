@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "import pty; pty.spawn('/bin/bash')" > /tmp/asdf.py
+echo "import pty; pty.spawn('/bin/sh')" > /tmp/asdf.py
 python /tmp/asdf.py
 runAsRoot="
 curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
