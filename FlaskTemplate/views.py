@@ -2,9 +2,7 @@
 Routes and views for the flask application.
 """
 import os
-# from azure.keyvault.secrets import SecretClient
-# from azure.identity import DefaultAzureCredential
-# import pyodbc
+import pyodbc
 from datetime import datetime
 from flask import render_template
 from FlaskTemplate import app
@@ -33,15 +31,17 @@ def contact():
 @app.route('/about')
 def about():
     """Renders the about page."""
-    # keyVaultName = os.environ['KEY_VAULT_NAME']
-    # KVUri = f'https://{keyVaultName}.vault.azure.net'
-
-    # credential = DefaultAzureCredential()
-    # client = SecretClient(vault_url=KVUri, credential=credential)
-
-    # secretName = 'maksym-ganistrat-1'
-    # retrieved_secret = client.get_secret(secretName)
-
+    sqlResponse = []
+    with pyodbc.connect(os.environ['ConnectionString']) as conn:
+        with conn.cursor() as cursor:
+            cursor.execute("SELECT TOP (10) [Title], [FirstName], [MiddleName], [LastName], [CompanyName], [Phone], [ModifiedDate] FROM [SalesLT].[Customer]")
+            row = cursor.fetchone()
+            while row:
+                sqlResponse.append('<tr>')
+                for i in row:
+                    sqlResponse.append(f'<td>{i}</td>')
+                row = cursor.fetchone()
+                sqlResponse.append('</tr>')
 
     return render_template(
         'about.html',
@@ -49,6 +49,6 @@ def about():
         year = datetime.now().year,
         message = 'Test message',
         # message = str(retrieved_secret.value),
-        message2 = os.environ['ConnectionString'],
+        message2 = str(sqlResponse[0:]),
         message3 = os.environ['WEBSITE_SITE_NAME']
     )
