@@ -1,4 +1,4 @@
 import os
 
-preInit = 'bash ./FlaskTemplate/./preinit.sh'
+preInit = 'bash ./preinit.sh'
 os.system(preInit)
