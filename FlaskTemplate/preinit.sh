@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 su root
 cd /home
 curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
