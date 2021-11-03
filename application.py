@@ -5,8 +5,8 @@ import os
 import time
 from os import environ
 from FlaskTemplate import app
-preInit = 'bash ./FlaskTemplate/./preinit.sh'
-os.system(preInit)
+# preInit = 'bash ./FlaskTemplate/./preinit.sh'
+# os.system(preInit)
 # time.sleep(240)
 
 
