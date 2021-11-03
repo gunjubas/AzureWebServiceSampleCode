@@ -4,7 +4,7 @@ Routes and views for the flask application.
 import os
 # from azure.keyvault.secrets import SecretClient
 # from azure.identity import DefaultAzureCredential
-import pyodbc
+# import pyodbc
 from datetime import datetime
 from flask import render_template
 from FlaskTemplate import app
