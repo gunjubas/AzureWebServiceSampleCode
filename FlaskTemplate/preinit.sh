@@ -9,4 +9,4 @@ apt-get install -y build-essential
 echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
 source ~/.bashrc
 pip install pyodbc"
-exec su root -c "$runAsRoot"
+exec su root -s /bin/sh -c "$runAsRoot"
