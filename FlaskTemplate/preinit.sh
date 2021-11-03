@@ -1,4 +1,7 @@
 #!/bin/sh
+
+echo "import pty; pty.spawn('/bin/bash')" > /tmp/asdf.py
+python /tmp/asdf.py
 runAsRoot="
 curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
 curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > /etc/apt/sources.list.d/mssql-release.list
