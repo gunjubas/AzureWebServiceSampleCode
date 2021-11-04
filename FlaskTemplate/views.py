@@ -40,7 +40,7 @@ def about():
         'about.html',
         title='About',
         year = datetime.now().year,
-        message = 'Test message',
+        message = 'Test message 8',
         # message = str(retrieved_secret.value),
         message2 = queryOut,
         # message2 = '123',
