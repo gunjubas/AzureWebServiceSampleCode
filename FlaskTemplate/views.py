@@ -6,6 +6,8 @@ from FlaskTemplate import app
 import os
 import subprocess
 from datetime import datetime
+from base64 import urlsafe_b64encode
+
 
 @app.route('/')
 @app.route('/home')
@@ -33,7 +35,7 @@ def about():
     cmd = 'python FlaskTemplate/query.py'
     process = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     stdout, stderr = process.communicate()
-    queryOut = str(stdout, 'utf-8')
+    queryOut = str(stdout)
     return render_template(
         'about.html',
         title='About',
