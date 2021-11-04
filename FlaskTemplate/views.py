@@ -37,9 +37,7 @@ def about():
         'about.html',
         title='About',
         year = datetime.now().year,
-        message = 'Test message 12',
-        # message = str(retrieved_secret.value),
+        message = 'Employee directory',
         message2 = queryOut,
-        # message2 = '123',
         message3 = os.environ['WEBSITE_SITE_NAME']
     )
