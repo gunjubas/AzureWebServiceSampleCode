@@ -30,19 +30,16 @@ def contact():
 
 @app.route('/about')
 def about():
-    """Renders the about page."""
     cmd = "python query.py"
     process = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     stdout, stderr = process.communicate()
-    queryOut = str(stdout, 'utf-8')
-    
     return render_template(
         'about.html',
         title='About',
         year = datetime.now().year,
         message = 'Test message',
         # message = str(retrieved_secret.value),
-        message2 = queryOut,
+        message2 = str(stdout, 'utf-8'),
         # message2 = '123',
         message3 = os.environ['WEBSITE_SITE_NAME']
     )
