@@ -42,7 +42,7 @@ def about():
     #                 sqlResponse.append(f'<td>{i}</td>')
     #             row = cursor.fetchone()
     #             sqlResponse.append('</tr>')
-
+    globals()[pyodbc] = __import__(pyodbc)
     return render_template(
         'about.html',
         title='About',
