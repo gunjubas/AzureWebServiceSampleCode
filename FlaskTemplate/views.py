@@ -29,7 +29,8 @@ def contact():
 
 @app.route('/about')
 def about():
-    cmd = "python query.py"
+    # cmd = "python query.py"
+    cmd = 'pwd'
     process = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     stdout, stderr = process.communicate()
     queryOut = str(stdout, 'utf-8')
