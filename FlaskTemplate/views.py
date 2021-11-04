@@ -7,7 +7,7 @@ import os
 import subprocess
 from datetime import datetime
 from base64 import urlsafe_b64encode
-
+from html import unescape
 
 @app.route('/')
 @app.route('/home')
@@ -40,9 +40,9 @@ def about():
         'about.html',
         title='About',
         year = datetime.now().year,
-        message = 'Test message 8',
+        message = 'Test message 9',
         # message = str(retrieved_secret.value),
-        message2 = queryOut,
+        message2 = unescape(queryOut),
         # message2 = '123',
         message3 = os.environ['WEBSITE_SITE_NAME']
     )
