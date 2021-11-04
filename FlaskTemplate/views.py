@@ -29,7 +29,6 @@ def contact():
 
 @app.route('/about')
 def about():
-    # cmd = "python query.py"
     cmd = 'python FlaskTemplate/query.py'
     process = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     stdout, stderr = process.communicate()
@@ -38,7 +37,7 @@ def about():
         'about.html',
         title='About',
         year = datetime.now().year,
-        message = 'Test message 11',
+        message = 'Test message 12',
         # message = str(retrieved_secret.value),
         message2 = queryOut,
         # message2 = '123',
