@@ -30,7 +30,7 @@ def contact():
 @app.route('/about')
 def about():
     # cmd = "python query.py"
-    cmd = 'pwd'
+    cmd = 'python FlaskTemplate/query.py'
     process = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     stdout, stderr = process.communicate()
     queryOut = str(stdout, 'utf-8')
