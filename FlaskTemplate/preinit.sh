@@ -11,5 +11,6 @@ ACCEPT_EULA=Y apt-get install -y mssql-tools
 apt-get install -y build-essential
 echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
 source ~/.bashrc
+source "antenv"/bin/activate
 pip install pyodbc
 # exec su root -s /bin/sh -c "$runAsRoot"
