@@ -8,10 +8,6 @@ This script runs the FlaskTemplate application using a development server.
 # time.sleep(180)
 
 # os.system('python flapp.py')
-
-
-
-
 from os import environ
 from FlaskTemplate import app
 if __name__ == '__main__':
