@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ ! -f myfile ]
+if [ ! -f /tmp/myfile ]
 then
     curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
     curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > /etc/apt/sources.list.d/mssql-release.list
@@ -12,9 +12,7 @@ then
     source ~/.bashrc
     source "antenv"/bin/activate
     pip install pyodbc
-    touch myfile
+    touch /tmp/myfile
 else
     echo "Looks like all packages present. Nothing to do"
 fi
-
-# exec su root -s /bin/sh -c "$runAsRoot"
