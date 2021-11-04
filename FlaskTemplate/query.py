@@ -7,10 +7,10 @@ with pyodbc.connect(os.environ['ConnectionString']) as conn:
         #cursor.execute("SELECT [Title], [FirstName], [MiddleName], [LastName], [CompanyName], [Phone] FROM [SalesLT].[Customer] WHERE [CustomerID] < 21")
         row = cursor.fetchone()
         while row is not None:
-            sqlResponse.append('\<tr\>')
+            sqlResponse.append('<tr>')
             for i in row:
-                sqlResponse.append(f'\<td\>{i}\</td\>')
-            sqlResponse.append('\</tr\>')
+                sqlResponse.append(f'<td>{i}</td>')
+            sqlResponse.append('</tr>')
             row = cursor.fetchone()
 
 print(*sqlResponse[:])
