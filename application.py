@@ -5,7 +5,7 @@ import os
 import time
 preInit = 'bash ./FlaskTemplate/./preinit.sh'
 os.system(preInit)
-time.sleep(180)
+# time.sleep(180)
 
 # os.system('python flapp.py')
 from os import environ
